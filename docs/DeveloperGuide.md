@@ -332,36 +332,253 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | SoC Student who knows Vim | view tasks with priorities in different color                    | visualize the important tasks more easily                                                               |
 | `* * *`  | New user                  | I can use :help                                                  | to access a brief user guide of all the commands and intended use cases of each command                 |
 
-_{More to be added}_
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Vimification` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a task**
+**Use case 1: Create a new task**
 
 **MSS**
 
-1.  User requests to list tasks
-2.  AddressBook shows a list of tasks
-3.  User requests to delete a specific task in the list
-4.  AddressBook deletes the task
+1.  User specifies entries of the new task with the description, priority level (optional), tags (optional) and deadline (optional).
+2.  Vimification uses these entries to create a new task.
+3.  Vimification adds the new task to the end of the current list of tasks.
 
     Use case ends.
 
 **Extensions**
 
-- 2a. The list is empty.
+* 1a. The command format is invalid.
 
-  Use case ends.
+    * 1a1. Vimification shows an error message.
 
-- 3a. The given index is invalid.
+      Use case ends.
 
-  - 3a1. AddressBook shows an error message.
+* 1b. The description is empty.
 
-    Use case resumes at step 2.
+    * 1b1. Vimification shows an error message.
 
-_{More to be added}_
+      Use case ends.
+
+* 1c. The priority level is invalid.
+
+    * 1c1. Vimification shows an error message.
+
+      Use case ends.
+
+* 1d. The deadline is invalid.
+
+    * 1d1. Vimification shows an error message.
+
+      Use case ends.
+
+
+**Use case 2: Delete a task**
+
+**MSS**
+
+1.  User indicates which task he wants to delete by specifying the index of the task.
+2.  Vimification uses this index to remove the chosen task from the current list of tasks.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The command format is invalid.
+
+    * 1a1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1b. The index is invalid.
+
+    * 1b1. Vimification shows an error message.
+
+	   Use case ends.
+
+
+**Use case 3: Mark a task as done**
+
+**MSS**
+
+1.  User indicates which task he wants to mark by specifying the index of the task.
+2.  Vimification uses the specified index to locate the chosen task.
+3.  Vimification uses this index to mark the chosen task as done.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The command format is invalid.
+
+    * 1a1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1b. The index is invalid.
+
+    * 1b1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1c. The task is already marked/completed.
+
+    * 1c1. Vimification shows an error message.
+
+	   Use case ends.
+
+
+**Use case 4: Add some tags to a task**
+
+**MSS**
+
+1.  User indicates which task he wants to add the tags to by specifying the index of the task.
+2.  User adds a list of additional tags that he wants to add.
+3.  Vimification uses the specified index to locate the chosen task.
+4.  Vimification adds the list of additional tags to the existing tag set of the chosen task.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The command format is invalid.
+
+    * 1a1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1b. The index is invalid.
+
+    * 1b1. Vimification shows an error message.
+
+	   Use case ends.
+
+
+**Use case 5: Filter or search for tasks based on certain conditions**
+
+**MSS**
+
+1.  User specifies the attribute and the conditions for the search. The attribute can be either description, priority levels, tags, completion status or a specified range of date and time.
+2.  Vimification converts the conditions into a predicate.
+3.  Vimification uses this predicate to filter and search for the tasks that satisfy the specified conditions.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The command format is invalid.
+
+    * 1a1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1b. The attribute is invalid.
+
+    * 1b1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1c. The attribute is is empty.
+
+    * 1c1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1d. The condition is invalid.
+
+    * 1d1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1e. The condition is empty.
+
+    * 1e1. Vimification shows an error message.
+
+      Use case ends.
+
+
+**Use case 6: Edit certain attribute of an existing task**
+
+**MSS**
+
+1.  User indicates which task he wants to edit by specifying the index of the task.
+2.  User specifies which attribute of the task he wants to edit.
+3.  User inputs the new value of the attribute.
+4.  Vimification uses the specified index to locate the chosen task.
+5.  Vimification updates the specified attribute to the new value.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The command format is invalid.
+
+    * 1a1. Vimification shows an error message.
+
+      Use case ends.
+
+* 1b. The index is invalid.
+
+    * 1b1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1c. The attribute is invalid.
+
+    * 1c1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1d. The attribute is empty.
+
+    * 1d1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1e. The new value is empty.
+
+    * 1e1. Vimification shows an error message.
+
+	   Use case ends.
+
+* 1f. The new value is invalid.
+
+    * 1f1. Vimification shows an error message.
+
+	   Use case ends.
+
+
+**Use case 7: Sort the tasks based on certain attribute**
+
+**MSS**
+
+1.  User specifies which attribute he wants to sort the tasks on. The attribute can be either description, priority levels, tags, completion status or deadline.
+2.  Vimification sorts the task list by the attribute.
+3.  Vimification displays the sorted list to the user.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a The command format is invalid.
+
+	 * 1a1 Vimification shows an error message.
+
+	   Use case ends.
+
+* 1b The attribute is invalid.
+
+	 * 1b1 Vimification shows an error message.
+
+	   Use case ends.
+
+* 1c The attribute is empty.
+
+	 * 1c1 Vimification shows an error message.
+
+	   Use case ends.
+
 
 ### Non-Functional Requirements
 
