@@ -31,16 +31,16 @@
 	<li><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">e.g.&nbsp;:a &lt;&quot;title&quot;&gt; [-d &lt;deadline&gt;], the user need not provide the&nbsp;&lt;deadline&gt;&nbsp;parameter.</span></span></li>
 </ul>
 
-<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Bracketed items with&nbsp;&hellip;​ behind means that user can provide multiple parameters.</span></span></p>
+<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Bracketed items with&nbsp;&hellip; behind means that user can provide multiple parameters.</span></span></p>
 
 <ul>
-	<li><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">e.g.&nbsp;:a &lt;&#39;title&quot;&gt; [-l &lt;label&gt;]&hellip;​, for example,&nbsp;:a &quot;Do OP2 slides&quot; -t cs2101,&nbsp;:a Do OP2 slides -t cs2101 -t presentation&nbsp;are both acceptable.</span></span></li>
+	<li><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">e.g.&nbsp;:a &lt;&#39;title&quot;&gt; [-l &lt;label&gt;]&hellip;, for example,&nbsp;:a &quot;Do OP2 slides&quot; -l cs2101,&nbsp;:a Do OP2 slides -l cs2101 -l presentation&nbsp;are both acceptable.</span></span></li>
 </ul>
 
 <p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Parameters identified by flags can be in any order.</span></span></p>
 
 <ul>
-	<li><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">e.g.&nbsp;:a &quot;Do OP2 slides&quot; -t cs2101 -p high,&nbsp;:a &quot;Do OP2 slides&quot; -p high -t cs2101&nbsp;are both acceptable.</span></span></li>
+	<li><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">e.g.&nbsp;:a &quot;Do OP2 slides&quot; -l cs2101 -p high,&nbsp;:a &quot;Do OP2 slides&quot; -p high -l cs2101&nbsp;are both acceptable.</span></span></li>
 </ul>
 
 <p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">For commands that do not take in parameters (such as&nbsp;help,&nbsp;list,&nbsp;exit&nbsp;and&nbsp;clear), any parameter provided will be ignored.</span></span></p>
@@ -452,7 +452,7 @@
 
 <p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Filter the parameters as specified by the flag.</span></span></p>
 
-<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Format:&nbsp;:f [-w &lt;&quot;keyword&quot;] [-d --before/after &lt;date&gt;] [-s &lt;status&gt;] [-p &lt;priority&gt;] [-l &lt;label&gt;]...</span></span></p>
+<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Format:&nbsp;:f [-w &quot;&lt;keyword&gt;&quot;] [-d --before/after &lt;date&gt;] [-s &lt;status&gt;] [-p &lt;priority&gt;] [-l &lt;label&gt;]...</span></span></p>
 
 <table style="width:588px">
 	<thead>
@@ -471,7 +471,7 @@
 	<tbody>
 		<tr>
 			<td style="width:69px">
-			<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">&lt;keyword&gt;</span></span></p>
+			<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">&quot;&lt;keyword&gt;&quot;</span></span></p>
 			</td>
 			<td style="width:234px">
 			<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">&nbsp;Keyword of task to filter</span></span></p>
@@ -555,11 +555,11 @@
 
 <p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Example of command</span></span></p>
 
-<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">1. :f -t&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sort for tasks by title</span></span></p>
+<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">1. :s -t&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sort for tasks by title</span></span></p>
 
-<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">2. :f -d&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sort for tasks by deadline</span></span></p>
+<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">2. :s -d&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sort for tasks by deadline</span></span></p>
 
-<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">3. :f -p&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sort for tasks by priority level</span></span></p>
+<p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">3. :s -p&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sort for tasks by priority level</span></span></p>
 
 <p><span style="font-size:11px"><span style="font-family:Comic Sans MS,cursive">Condition</span></span></p>
 
