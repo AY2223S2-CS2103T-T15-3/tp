@@ -108,4 +108,15 @@ public class TaskListPanel extends UiPart<VBox> {
     public void searchForTask(Predicate<? super Task> predicate) {
         taskList.setPredicate(predicate);
     }
+
+    /**
+     * Scroll to the kth index on the TaskListPanel.
+     *
+     * @param displayedIndex
+     */
+    public void scrollToTaskIndex(int displayedIndex) {
+        taskListView.getFocusModel().focus(displayedIndex - 1);
+        taskListView.getSelectionModel().select(displayedIndex - 1);
+        taskListView.scrollTo(displayedIndex - 1);
+    }
 }
