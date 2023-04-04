@@ -5,7 +5,9 @@ import javafx.scene.control.ListView;
 
 import java.util.function.Predicate;
 
+import javafx.event.Event;
 import javafx.application.Platform;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import vimification.model.UiTaskList;
@@ -48,17 +50,6 @@ public class TaskListPanel extends UiPart<VBox> {
         taskListView.requestFocus();
     }
 
-    /**
-     * Scroll to the kth index on the TaskListPanel.
-     *
-     * @param displayedIndex
-     */
-    public void scrollToTaskIndex(int displayedIndex) {
-        taskListView.getFocusModel().focus(displayedIndex - 1);
-        taskListView.getSelectionModel().select(displayedIndex - 1);
-        taskListView.scrollTo(displayedIndex - 1);
-    }
-
     @FXML
     private void initialize() {
         // TODO: Implement Visual Mode
@@ -76,53 +67,42 @@ public class TaskListPanel extends UiPart<VBox> {
 
     @FXML
     private void handleKeyPressed(KeyEvent event) {
-        switch (event.getText()) {
-        case "h":
-            mainScreen.clearRightComponent();
-            break;
-        case "l":
-            Task selectedTask = taskListView.getSelectionModel().getSelectedItem();
-            TaskDetailPanel detailTask = new TaskDetailPanel(selectedTask);
-            mainScreen.loadRightComponent(detailTask);
-            break;
-        case "j":
-            System.out.println("You've moved down");
-            navigateToNextCell();
-            break;
-        case "k":
+        switch (event.getCode()) {
+        case K:
             System.out.println("You've moved up");
-            navigateToPrevCell();
+            replaceKeyEvent(event, KeyCode.UP);
             break;
+
+        case J:
+            System.out.println("You've moved down");
+            replaceKeyEvent(event, KeyCode.DOWN);
+            break;
+
         default:
             System.out.println("You've pressed: " + event.getText());
-            break;
+            return; // Do nothing if user presses any other key.
         }
+        rerender();
     }
 
-
-    private void navigateToNextCell() {
-        int currIndex = taskListView.getFocusModel().getFocusedIndex();
-        int lastIndex = taskListView.getItems().size();
-
-        // We can only navigate to the next cell if we are not the last cell.
-        boolean isCurrLastCell = currIndex == lastIndex;
-        if (!isCurrLastCell) {
-            taskListView.getFocusModel().focusNext();
-            taskListView.getSelectionModel().select(currIndex + 1);
-            taskListView.scrollTo(currIndex + 1);
-        }
+    /**
+     * To replace an old Keyevent with a new key event
+     */
+    public void replaceKeyEvent(KeyEvent event, KeyCode keyCode) {
+        event.consume();
+        KeyEvent newEvent = new KeyEvent(event.getSource(), event.getTarget(), event.getEventType(),
+                event.getCharacter(), event.getText(), keyCode, event.isShiftDown(),
+                event.isControlDown(), event.isAltDown(), event.isMetaDown());
+        Event.fireEvent(event.getTarget(), newEvent);
     }
 
-    private void navigateToPrevCell() {
-        int currIndex = taskListView.getFocusModel().getFocusedIndex();
-
-        // We can only navigate to the previous cell if we are not the first cell.
-        boolean isCurrFirstCell = currIndex == 0;
-        if (!isCurrFirstCell) {
-            taskListView.getFocusModel().focusPrevious();
-            taskListView.getSelectionModel().select(currIndex - 1);
-            taskListView.scrollTo(currIndex - 1);
-        }
+    /**
+     * Rerender the right component of the main screen.
+     */
+    public void rerender() {
+        Task selectedTask = taskListView.getSelectionModel().getSelectedItem();
+        TaskDetailPanel detailTask = new TaskDetailPanel(selectedTask);
+        mainScreen.loadRightComponent(detailTask);
     }
 
     public void searchForTask(Predicate<? super Task> predicate) {
