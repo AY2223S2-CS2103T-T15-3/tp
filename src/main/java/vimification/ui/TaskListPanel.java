@@ -78,6 +78,10 @@ public class TaskListPanel extends UiPart<VBox> {
             replaceKeyEvent(event, KeyCode.DOWN);
             break;
 
+        case UP:
+        case DOWN:
+            break;
+
         default:
             System.out.println("You've pressed: " + event.getText());
             return; // Do nothing if user presses any other key.
