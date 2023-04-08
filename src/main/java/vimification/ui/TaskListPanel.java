@@ -48,6 +48,10 @@ public class TaskListPanel extends UiPart<VBox> {
 
     public void requestFocus() {
         taskListView.requestFocus();
+        System.out.println(taskListView.getSelectionModel().getSelectedItem());
+        if (taskListView.getSelectionModel().getSelectedItem() == null) {
+            scrollToTaskIndex(1);
+        }
     }
 
     @FXML
