@@ -40,11 +40,40 @@ title: User Guide
   - [Editing existing macro data](#editing-existing-macro-data)
 - [Command summary](#command-summary)
 
+- [Introduction](#introduction)
+- [Purpose of this User Guide](#purpose-of-this-user-guide)
+- [Quick Start](#quick-start)
+  - [Installation](#installation)
+  - [For Windows](#for-windows)
+  - [For Mac](#for-mac)
+  - [Trying out the commands](#trying-out-the-commands)
+- [Navigating Vimification](#navigating-vimification)
+- [Using the commands](#using-the-commands)
+- [General information on a task's attributes](#general-information-on-a-tasks-attributes)
+- [Information on commands' parameters](#information-on-commands-parameters)
+- [Features and commands](#features-and-commands)
+  - [Viewing help](#viewing-help)
+  - [Adding task](#adding-task)
+  - [Inserting parameters to a task](#inserting-parameters-to-a-task)
+  - [Deleting task](#deleting-task)
+  - [Deleting parameters of a task](#deleting-parameters-of-a-task)
+  - [Editing task](#editing-task)
+  - [Filtering task](#filtering-task)
+  - [Sorting task](#sorting-task)
+  - [General information on MACRO commands](#general-information-on-macro-commands)
+  - [Undoing the previous command](#undoing-the-previous-command)
+  - [Exiting the application](#exiting-the-application)
+  - [Saving the task list data](#saving-the-task-list-data)
+  - [Editing existing task list data](#editing-existing-task-list-data)
+  - [Archiving data files (future feature)](#archiving-data-files-future-feature)
+- [FAQ](#faq)
+- [Command summary](#command-summary)
+
 ## Introduction
 
-**Vimification** is a **desktop app** built for Vim enthusasts to manage tasks and deadlines, optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a **Graphical User Interface** (GUI).
+**Vimification** is a **desktop app** built for Vim enthusiasts to manage tasks and deadlines, optimized for use via a **Command Line Interface** (CLI) whilst having the benefits of a **Graphical User Interface** (GUI).
 
-**Vimification** is modelled after **Vim**, so the command syntax for the Vimificaiton CLI closely mimics **Vim**.
+**Vimification** is modelled after **Vim**, so the command syntax for the Vimificaiton CLI closely mimics that of **Vim**.
 
 <p class="back-to-top" style="text-align: right"><a href="#table-of-contents">Back to Top &#8593;</a></p>
 
@@ -203,6 +232,7 @@ Similiar to Vim, you can quit Vimification by typing `:quit` or `:q!` on your ke
 <img class="ui-img" src="images/ug-images/8.quit.png">
 <br><br>
 <p class="back-to-top" style="text-align: right"><a href="#table-of-contents">Back to Top &#8593;</a></p>
+>>>>>>> 67792e432fcb372a7a5542f1ba51f8070fdf5f78
 
 ### Trying out the commands
 
@@ -609,7 +639,7 @@ Format: `macro -d <macro>`
 You can view all macros and their mappings by keying in `:macro -l`.
 
 ### Exiting the application
-
+g
 (Somwhat) similar to Vim, we can use the `:quit` or `:q!` to exit the application.
 
 ### Saving the task list data

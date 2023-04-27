@@ -104,7 +104,7 @@ public class LogsCenter {
      *
      * @throws IOException if there are problems opening the file.
      */
-    private static FileHandler createFileHandler() throws IOException {
+    public static FileHandler createFileHandler() throws IOException {
         FileHandler fileHandler =
                 new FileHandler(LOG_FILE, MAX_FILE_SIZE_IN_BYTES, MAX_FILE_COUNT, true);
         fileHandler.setFormatter(new SimpleFormatter());
